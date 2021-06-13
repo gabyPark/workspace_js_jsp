@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>WebContent/JS2/test1.html</h1>
+
+	<script type="text/javascript">
+		// 제어문 : 실행문의 흐름을 제어하는 코드
+		//  -> 분기문,반복문,선택문
+
+		// 분기문 if
+		//      if(조건문){
+		//     	 조건문이 참일때 실행하는 문장
+		//      }
+
+		// 변수1개 생성 : 100 값으로 초기화
+		// 만약에 해당 값이 50보다 크면 " 50보다 큽니다 "
+		var num = 20;
+		if (num > 50) {
+			document.write("50보다 큽니다.<br>");
+		}
+
+		if (true) {
+			document.write("출력!<br>");
+		}
+
+		// if(0) - x, if(1) - o => Boolean() 기능과 동일하다.
+		if (5) { // 숫자0,null,undefinded -> false, 그외 나머지 true
+			document.write("출력2@@@ <br>");
+		}
+
+		// prompt() 사용해서 사용자의 이름을 입력받기
+		// -> 이름을 입력했을때 " ㅇㅇㅇ님 안녕하세요~! "
+
+		var name = prompt("사용자의 이름을 입력하시오.");
+
+		document.write(typeof name + "<br>");
+
+		// 		if(name != null){
+		// 			document.write(name+"님 안녕하세요~! <br>");
+		// 		}
+		// if문이 한줄일때는 중괄호를 생략 가능
+		if (name)
+			document.write(name + "님 안녕하세요~! <br>");
+
+		// else 구문 : if 조건을 만족하는 대상을 제외한 나머지 조건
+
+		//         if(조건문){
+		//         	실행문;
+		//         	실행문;        	
+		//         }else{
+		//         	실행문;
+		//         	실행문;
+		//         }
+
+		// 변수 num = 100 , 변수의 값이 홀수, 짝수 인지 구분해서 출력
+		
+		num = 100;
+		
+		// num % 2 != 0 (홀수)
+		if(num % 2 == 0){
+			document.write("짝수!<br>");
+		}else{
+			document.write("홀수!<br>");			
+		}
+		
+		// confirm("메세지");
+		// 회원 탈퇴  "회원 탈퇴 하시겠습니까?"
+		//   사용자 - 확인 : "탈퇴 완료!"
+		//        - 취소 : "사용 유지!"
+		var tmp = confirm("회원 탈퇴 하시겠습니까?");
+		//document.write("tmp : "+tmp);
+		
+		//if(tmp){
+		if(tmp == true){
+			document.write(" 탈퇴 완료! <br>");
+		}else{
+			document.write(" 사용 유지! <br>");			
+		}
+		
+		// else if문
+		/* if(조건문){
+			실행문
+		}else if(조건문){
+			
+		}else if(조건문){
+			
+		}else{
+			
+		} */
+		document.write("<hr>");
+		num = 0;
+		// num 값이 정수(양의 정수, 음의 정수, 0)인지를 판별
+		
+		// 결과 출력
+		if(num > 0){
+			document.write("양의 정수<br>");
+		}else if(num < 0){
+			document.write("음의 정수<br>");
+		}else{
+			document.write("0 <br>");    
+		}
+		
+		document.write("<hr>");
+		
+		// 삼항연산자를 사용해서 동일한 연산을 처리하시오.
+		// [조건식? 실행문(참):실행문(거짓)]
+		
+		document.write(num>0? "양수":"양수가 아님(음수/0)");
+		document.write(num>0? "양수":( num < 0? "음수":"음수가 아님(0)" ) );
+		document.write(num>0? "양수":( num < 0? "음수":"0" ) );
+		
+		document.write("<hr>");
+		var score = 1000;
+		// 점수 0~100점
+		// 학생의 점수가 90이상 - A, 80점이상-B,
+		// 70점 이상 - C,60점이상 - D,
+		// 그외 나머지 F 
+		// => 학생의 점수는 어떤 학점을 받는지 계산해서 출력
+		// " 학생  00 점 - 00 등급"
+		
+		/* if(score >= 90){
+			document.write("학생 "+score+"점 - A등급<br>");
+		}
+		if(score >= 80){
+			document.write("학생 "+score+"점 - B등급<br>");
+		}
+		if(score >= 70){
+			document.write("학생 "+score+"점 - C등급<br>");
+		}
+		if(score >= 60){
+			document.write("학생 "+score+"점 - D등급<br>");
+		}
+		if(score < 60){
+			document.write("학생 "+score+"점 - F등급<br>");
+		} */
+		/* if(score >= 90){
+			document.write("학생 "+score+"점 - A등급<br>");
+		}
+		else if(score >= 80){
+			document.write("학생 "+score+"점 - B등급<br>");
+		}
+		else if(score >= 70){
+			document.write("학생 "+score+"점 - C등급<br>");
+		}
+		else if(score >= 60){
+			document.write("학생 "+score+"점 - D등급<br>");
+		}
+		else{
+			document.write("학생 "+score+"점 - F등급<br>");
+		} */
+		
+		score =105;
+		
+		if(90 <= score && score <= 100){
+			document.write("학생 "+score+"점 - A등급<br>");
+		}
+		else if(score >= 80 && score<=89){
+			document.write("학생 "+score+"점 - B등급<br>");
+		}
+		else if(70 <= score && score <= 79){
+			document.write("학생 "+score+"점 - C등급<br>");
+		}
+		else if(60 <= score && score <= 69){
+			document.write("학생 "+score+"점 - D등급<br>");
+		}
+		else if(0<= score && score <=59){
+			document.write("학생 "+score+"점 - F등급<br>");
+		}else{
+			document.write(" 0~100점 사이 점수를 입력하시오! <br>");
+		}
+		
+		
+		document.write("<hr>");
+		
+		// 사용자로부터 입력을 받는데, 월의 정보를 입력받아서  (항상 1~12 숫자만 입력)
+		// -> 3~5 "봄",6~8 "여름", 9~11 "가을", 12~2 "겨울"
+		
+		//var month = prompt("현재는 몇 월 입니까?");
+		var month =12;
+		
+		if(3 <= month && month <= 5){
+			document.write("봄!");
+		}else if(6 <= month && month <= 8){
+			document.write("여름!");
+		}else if(8<= month && month <= 11){
+			document.write("가을!");			
+		}else if(1<= month && month <=2 || month == 12){
+			document.write("겨울!");			
+		}
+// 		else{
+// 			document.write("겨울!");		
+// 		}
+		
+		// 중첩 if문 : 조건문1, 조건문 2을 만족하는 실행문 2를 사용할때 쓰는 구문
+		
+// 		if(조건문1){
+// 			if(조건문2){
+// 				실행문2
+// 			}
+// 		}
+
+      // 로그인 동작
+      
+      // 1. 사용자 id/pw 입력
+      // 2. 사용자의 id와 pw가 같은지 확인
+      // 3. 사용자의 id/pw 다른경우 메시지출력
+      // 4. 사용자의 id/pw 같은경우 로그인 처리
+      
+      // prompt()를 사용해서 ID,PW 각각 입력
+      // userID="itwill",userPW="1234"지정
+      
+      // 입력 아이디와 itwill 같은경우
+      //    입력된 비밀번호와 1234 같은경우 - "로그인"
+      //    입력된 비밀번호와 1234 다른경우 - "비밀번호 오류"
+      // 입력 아이디와 itwill 다른경우 - "비회원" 
+      
+	 document.write("<hr>");
+      var userID = "itwill";
+      var userPW = "1234";
+      
+      var ID = prompt("아이디를 입력하시오");
+      var PW = prompt("비밀번호를 입력하시오");
+      
+      if(ID == userID){
+    	  // 아이디가 같음
+    	  if(PW == userPW){
+    		  // 아이디가 같으면서 비밀번호도 같음
+    		  alert(" 로그인 성공~! ");
+    	  }else{
+    		  // 아이디는 같으나, 비밀번호가 다름
+    		  alert(" 비밀번호 오류!! ");
+    	  }
+      }else{
+    	  // 아이디가 다름
+    	  alert(" 아이디가 없음!!! ");
+      }
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+
+
+</body>
+</html>

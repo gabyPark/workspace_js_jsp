@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery_jsp / WebContent / jq3 / string1.html</title>
+
+<script src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		// html 에서 jsp코드 사용 불가
+		// string1.jsp 페이지의 정보를 가져오기
+		
+		// ajax 로 jsp 페이지 갔다옴
+		$.ajax('string1.jsp', {
+			success:function(data){
+				alert("페이지 이동 성공!");
+				// alert(data);
+				$('body').append(data);
+			}
+		});
+		
+		
+		// jQuery.txt 파일을 추가
+		$.ajax({
+			url:"../JQUERY.txt",
+			success:function(result){
+				$('body').append(result);
+			}
+		});
+	
+	}); // jQuery end
+	
+</script>
+
+</head>
+<body>
+
+	<h1>JQuery_jsp / WebContent / jq3 / string1.html</h1>
+	
+	<h2> 클라이언트 역할 </h2>
+
+</body>
+</html>

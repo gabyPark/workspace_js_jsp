@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>WebContent/JS4/Test2.html</h1>
+
+	<!-- 폼태그 1개 생성 (action-"itwillLogin.html", method-get)
+             아이디, 비밀번호 정보를 저장해서 전달하는 처리  
+   -->
+
+	<fieldset>
+													<!-- onsubmit="return true" :submit 작동 -->
+													<!-- onsubmit="return false" :submit 작동 X  -->
+		<form action="itwillLogin.html" method="get" name="fr" onsubmit="return check();">
+			아이디 : <input type="text" name="id" value=""><br>
+			비밀번호 : <input type="password" name="pw" placeholder="비밀번호를 입력하시오." ><br>
+			주민번호 : 
+			<input type="text" name="ju1" maxlength="6" 
+			       onkeyup=" check_ju1(); "
+			> 
+			        -
+			<input type="text" name="ju2" maxlength="7" 
+			       onkeyup=" check_ju2();"
+			><br>			
+			<hr>
+			하고싶은말 : <textarea rows="3" cols="10" name="msg"></textarea>
+			<hr>
+			<input type="submit" value="로그인(전송)" >	
+			<input type="reset" value="초기화">
+			<hr>	
+			<input type="button" value=" 폼태그에 포함된 요소 속성 " onclick=" fun1(); ">
+			<input type="button" value=" 요소 속성값 변경하기 " onclick=" fun2(); ">
+			<hr>	
+			<input type="button" value="유효성 체크 후 데이터전달(submit)" onclick=" check_data(); ">
+			
+		</form>
+	</fieldset>
+	
+	
+	
+  <script type="text/javascript">
+    // fun1() - 폼태그 action,method 정보 확인
+    function fun1(){
+    	//alert("폼-action : "+ document.forms[0].action);
+    	//alert("폼-method : "+ document.fr.method);
+        //alert("폼-input(아이디) : "+document.fr.id);
+        //alert(document.fr.id);
+        //console.log("폼-input(아이디) : "+document.fr.id);
+        //console.log(document.fr.id);
+        alert("요소의 타입 : "+document.fr.msg.type);
+        alert("요소의 이름 : "+document.fr.id.name);
+        alert("요소의 값 : "+document.fr.id.value);
+        
+        alert("비밀번호 : "+document.fr.pw.value);
+    } //fun1()
+    
+    function fun2(){
+    	// id - Hello, 주민번호 - 900101-1231231
+    	document.fr.id.value="Hello";
+    	document.forms[0].ju1.value="900101";
+    	document.fr.ju2.value="1231231";
+    	
+    	// focus() : 해당 요소를 확인할수 있도록 체크
+    	//document.fr.id.focus();
+    	// blur() : 커서를 해제 (focus 없애기)
+    	//document.fr.id.blur();
+    	// select() : 커서 선택 + 값선택
+    	document.fr.id.select();    	
+    	
+    }//fun2()
+    
+    // 데이터 제어(유효성체크) : form 태그에 전달되는 데이터가 올바른 데이터인지 확인
+    function check_data(){
+    	alert(" 폼태그 유효성 체크!! ");
+    	// 텍스트 상자안에 값이 있는지 없는지 체크
+    	// 값이 없을경우 "ID값을 입력하세요" 메세지
+    	//alert(document.fr.id.value);
+    	//if(document.fr.id.value == ""){
+    	if(document.fr.id.value.length <= 0){
+    		alert("ID값을 입력하세요");
+    		document.fr.id.focus();
+    		return;  //함수를 종료
+    	}
+    	
+    	// id의 글자수를 5자리 이상 10자리 이하만 사용가능
+    	//  - 그외 "해당 아이디를 사용할수 없음"
+    	if( document.fr.id.value.length < 5 
+    			|| document.fr.id.value.length > 10){
+             alert("해당 아이디를 사용할수 없음")  ;  	
+             return;
+    	}
+    	
+    	var len = document.fr.id.value.length;
+    	if( !(5 <= len && len <=10) ){
+    		 alert("해당 아이디를 사용할수 없음@@@")  ;  
+    		 return;
+    	}
+    	
+    	// 비밀번호
+    	if( document.fr.pw.value == ""){
+    		alert("비밀번호를 입력하시오.");
+    		document.fr.pw.focus();
+    		return;
+    	}
+    	// 주민번호
+    	if( document.fr.ju1.value == "" ){
+    		alert("주민번호 앞자리를 입력하시오");
+    		document.fr.ju1.focus();
+    		return;
+    	}
+    	if( document.fr.ju2.value.length <= 0){
+    		alert("주민번호 뒷자리를 입력하시오");
+    		document.fr.ju2.focus();
+    		return;
+    	}
+    	// 하고싶은말
+    	if( document.fr.msg.value == "" ){
+    		alert(" 하고싶은 말을 입력하시오. ");
+    		document.fr.msg.focus();
+    		return;
+    	}
+    		
+    	// 데이터 전송(submit)
+    	document.fr.submit();
+    	
+    }// check_data() 끝
+  
+    function check(){
+
+    	alert(" 폼태그 유효성 체크!! ");
+    	// 텍스트 상자안에 값이 있는지 없는지 체크
+    	// 값이 없을경우 "ID값을 입력하세요" 메세지
+    	//alert(document.fr.id.value);
+    	//if(document.fr.id.value == ""){
+    	if(document.fr.id.value.length <= 0){
+    		alert("ID값을 입력하세요");
+    		document.fr.id.focus();
+    		return false;  //함수를 종료
+    	}
+    	
+    	// id의 글자수를 5자리 이상 10자리 이하만 사용가능
+    	//  - 그외 "해당 아이디를 사용할수 없음"
+    	if( document.fr.id.value.length < 5 
+    			|| document.fr.id.value.length > 10){
+             alert("해당 아이디를 사용할수 없음")  ;  	
+             return;
+    	}
+    	
+    	var len = document.fr.id.value.length;
+    	if( !(5 <= len && len <=10) ){
+    		 alert("해당 아이디를 사용할수 없음@@@")  ;  
+    		 return;
+    	}
+    	
+    	// 비밀번호
+    	if( document.fr.pw.value == ""){
+    		alert("비밀번호를 입력하시오.");
+    		document.fr.pw.focus();
+    		return;
+    	}
+    	// 주민번호
+    	if( document.fr.ju1.value == "" ){
+    		alert("주민번호 앞자리를 입력하시오");
+    		document.fr.ju1.focus();
+    		return;
+    	}
+    	if( document.fr.ju2.value.length <= 0){
+    		alert("주민번호 뒷자리를 입력하시오");
+    		document.fr.ju2.focus();
+    		return;
+    	}
+    	// 하고싶은말
+    	if( document.fr.msg.value == "" ){
+    		alert(" 하고싶은 말을 입력하시오. ");
+    		document.fr.msg.focus();
+    		return;
+    	}
+    		
+    	
+    }// check() 끝
+    
+    
+    function check_ju1(){
+    	// 주민번호 앞자리의 입력값이 6일때 
+    	if(document.fr.ju1.value.length == 6){
+            document.fr.ju2.focus();	
+    	}
+    	
+    }// check_ju1
+    
+    function check_ju2(){
+    	// 주민번호 앞자리의 입력값이 7일때 
+    	if(document.fr.ju2.value.length == 7){
+            document.fr.msg.focus();	
+    	}
+    	
+    }// check_ju2
+    
+    
+    
+  
+  </script>
+
+
+
+
+</body>
+</html>

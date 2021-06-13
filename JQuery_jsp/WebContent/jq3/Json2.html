@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WebContent / jq3 / json2.html</title>
+
+<script src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		// Json2.json 파일의 데이터를 가져와서 출력
+		$.getJSON('Json2.json',function(data){
+			
+			// data => JSON 객체를 받기
+			console.log(data);
+			// => F12 로 JSON 파일의 구조 확인 할 수 있음 
+			
+			$.each(data,function(a,b){
+				// $('body').append(a+"--"+b[0].name+"<br>");
+				$('table').append("<tr><td>"+b.name+"</td><td>"+b.age+"</td><td>"+b.gender+"</td></tr>");
+			});
+		});
+		
+	});
+
+</script>
+</head>
+<body>
+
+<h1>WebContent / jq3 / json2.html</h1>
+
+	<table border="1">
+		<tr>
+			<td>이름</td>
+			<td>나이</td>
+			<td>성별</td>
+		</tr>	
+	</table>
+
+</body>
+</html>

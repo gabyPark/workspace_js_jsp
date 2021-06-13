@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+   <script type="text/javascript">
+      function fun1(){
+    	  //alert("테스트");
+    	  // select 속성
+    	  alert("name : "+document.fr.sel.name);
+    	  // length : 옵션의 개수 
+    	  alert("length : "+document.fr.sel.length);
+    	  alert("type : "+document.fr.sel.type);
+    	  alert("selectedIndex : "+document.fr.sel.selectedIndex);    	  
+    	  
+    	  //document.fr.sel.focus();
+    	  //document.fr.sel.blur();    	  
+      }// fun1()끝
+      
+      function fun2(){
+    	 //select - option
+    	 //alert(document.fr.sel.options[0]);  
+    	 //console.log(document.fr.sel.options[0]);
+    	 
+    	 //* submit시 value값이 전송, value가 없을경우 text 값이 전송
+    	 //text : <option>값</option>
+    	 alert("text : "+document.fr.sel.options[4].text);
+    	 //value : <option value="값">
+    	 alert("value : "+document.fr.sel.options[4].value);
+    	 alert("selected : "+document.fr.sel.options[0].selected);
+      }//fun2() 끝
+      
+      function fun3(){
+    	  //alert("@@");
+    	  
+    	  //alert("선택된 번호 : "+document.fr.sel.selectedIndex);
+    	  // 선택된 option의 이름을 출력
+    	  //alert(document.fr.sel.options[document.fr.sel.selectedIndex].text+" 선택!!! ");
+    	  
+    	  var idx = document.fr.sel.selectedIndex;
+    	  alert(document.fr.sel.options[idx].text+" 선택!!! ");
+      }// fun2()
+      
+      function fun3(){
+    	  // 1)
+    	  //var idx = document.fr.sel.selectedIndex;
+    	  //if(document.fr.sel.options[idx].value == "")
+    	  // 2)	  
+    	  //if(document.fr.sel.selectedIndex == 0)
+    	  // 3)
+    	  if(document.fr.sel.options[0].selected == true){
+    		  alert(" 과목을 선택하시오 .");
+    		  return;
+    	  }
+    	  document.fr.submit();    	  
+      }
+   
+   </script>
+
+</head>
+<body>
+
+ <h1>WebContent/JS4/Test4.html</h1>
+ 
+ <fieldset>
+   <form action="itwill.html" method="get" name="fr">
+      <!-- size="3" multiple="multiple" -->
+      <select name="sel" onchange=" fun3(); ">
+         <option value="">과목을 선택하시오.</option>
+         <option value="java">자바</option>
+         <option value="js">자바스크립트</option>
+         <option value="jsp">JSP</option>
+         <option value="web">WEB</option>
+         <option value="db">DATABASE</option>
+      </select>
+      
+      <hr>
+      <input type="submit" value="전송">
+      <input type="reset" value="초기화">      
+      <hr>
+      
+      <!-- <input type="button" value="속성확인" > -->
+      <!-- href="" 자신의 페이지 호출 -->
+      <!-- href="#" 페이지 이동x -->
+      <a href="#" onclick="javascript:fun1();"> select 속성정보 확인하기 </a><br>
+      <input type="button" value="select-option의 속성정보 확인" onclick=" fun2(); ">
+      
+      <input type="button" value=" 유효성 체크 " onclick="fun3();">
+      
+      
+   </form> 
+ </fieldset>
+ 
+ 
+
+</body>
+</html>

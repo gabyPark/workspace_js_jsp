@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>WebContent/JS3/Test3.html</h1>
+	
+	<script type="text/javascript">
+	  // 내장객체  : 배열 객체(Array)
+	  
+	  // 배열 : 여러개의 데이터를 연속된 공간에 저장가능한 공간
+	  // 배열 객체 생성 -> 배열 생성
+	  var arr1 = new Array();
+	  
+	  // 배열의 데이터 -> 요소
+	  // 배열에 값을 초기화 ( 배열의 요소값을 초기화 )
+	  // 배열의 이름(객체의 참조변수명)[인덱스-위치정보] = 값
+	  
+	  // * 배열의 인덱스는 항상 0번부터 시작
+	  arr1[0] = 100;
+	  arr1[1] = 200;
+	  
+	  // 배열의 사용-> 일반 변수 처럼
+	  document.write("arr[0] : "+arr1[0]+"<br>");
+	  document.write("arr[1] : "+arr1[1]+"<br>");
+	  
+	  
+	  // 배열 생성
+	  // 1. var arr = new Array();
+	  // 2. var arr = new Array(크기);
+	  // 3. var arr = new Array(값1,값2,값3,값4,....);
+	  // 4. var arr = [값1,값2,값3,....];
+	  
+	  //크기가 5인 배열을 생성해서  데이터 초기화 10~50값
+	  var arr2 = new Array(5);
+	  //var a,b,c,d,e;  위 코드와 동일한 의미
+	  arr2[0]=10;
+	  arr2[1]=20;
+	  arr2[2]=30;
+	  arr2[3]=40;
+	  arr2[4]=50;
+	  
+	  // 정보 확인 출력
+	  document.write("arr2[0]="+arr2[0]+"<br>");
+	  document.write("arr2[1]="+arr2[1]+"<br>");
+	  document.write("arr2[2]="+arr2[2]+"<br>");
+	  document.write("arr2[3]="+arr2[3]+"<br>");
+	  document.write("arr2[4]="+arr2[4]+"<br>");
+	  //document.write("arr2[5]="+arr2[5]+"<br>");
+	  
+	  // ->for문 사용해서 출력
+	  for(var i=0;i<5;i++){
+		  document.write("arr2["+i+"]="+arr2[i]+"<br>");
+	  }
+	  
+	  // 배열의 길이 -> 배열의 요소의 개수
+	  document.write("배열의 길이 : "+arr2.length+"<br>");
+	
+	  for(var i=0;i<arr2.length;i++){
+		  document.write("arr2["+i+"]="+arr2[i]+"<br>");
+	  }
+	  
+	  // "java","jsp","javaScript",'web',"DB" 
+	  // => 위 데이터 정보를 저장하는 배열 생성 출력
+	  var arr3 = ["java","jsp","javaScript",'web',"DB",10,3.123 ];
+	  
+	  for(var i =0;i<arr3.length;i++){
+		  document.write("arr3["+i+"]="+arr3[i]+"<br>");
+	  }
+	  
+	  // for~in 문
+	  for(var data in arr3){
+		  document.write(arr3[data]+"<br>");		  
+	  }
+	  
+	  // 배열객체의 기능(동작)
+	  
+	  var Food = ["apple","banana","lemon","Orange"];
+	  var num = [1,2,6,8,5,3,7,2];
+	  
+	  // join() - 각각의 요소 사이에 구분값을 입력
+	  document.write(Food.join("@")+"<br>");
+	  
+	  // reverse() - 배열의 요소를 뒤집기
+	  document.write(num+"<br>");
+	  document.write(num.reverse()+"<br>");
+	  
+	  // sort() - 배열의 요소 정렬
+	  document.write(num.sort()+"<br>");
+	  
+	  // 내림차순 정렬
+	  num.sort();
+	  num.reverse();
+	  document.write(num+"<br>");
+	  
+	  // 배열 특정 요소값만 사용
+	  // slice(시작인덱스, 끝인덱스-1) : 시작 인덱스부터~ 끝인덱스-1 자리까지
+	  // 짤라오는 함수
+	  document.write(num.slice(1, 3)+"<br>");
+	  
+	  //////////////////////////////////////////////////////
+	  // 날짜 정보 객체 (Date)
+	  
+      // new Date() :  시스템의 날짜, 시간정보를 가지고 오는 객체 	  
+	  var day1 = new Date();
+	  document.write("출력 : "+day1+"<br>");
+	  var day2 = new Date(2020,1,1);
+	  document.write("출력 : "+day2+"<br>");
+	  var day3 = new Date(2020,12,8,11,35,00);
+	  document.write("출력 : "+day3+"<br>");
+	  
+	  /* 날짜 정보를 처리하는 함수 */
+	  document.write("<br>");
+	  //new Date(); -> 월 출력시 +1
+	  document.write(day1.getFullYear()+"<br>"); //년
+	  document.write((day1.getMonth()+1)+"<br>"); //월 (0~11)
+	  document.write(day1.getDate()+"<br>"); //일
+	  document.write(day1.getDay()+"<br>"); //요일(0~6:일~토)
+	  
+	  //new Date(2020,1,1); -> 월 출력시 +0
+	  document.write(day2.getFullYear()+"<br>"); //년
+	  document.write((day2.getMonth())+"<br>"); //월 (0~11)
+	  document.write(day2.getDate()+"<br>"); //일 
+	  
+	  // 오늘 날짜 정보를 출력
+	  // "2020년 12월 8일 (화요일)"
+	  document.write(day1.getFullYear()+"년 ");
+	  document.write((day1.getMonth()+1)+"월 ");
+	  document.write(day1.getDate()+"일 ");
+// 	  document.write(day1.getDay());
+	
+      var day ="";
+	  switch(day1.getDay()){
+	  
+	  case 0:
+		  day="일";
+		  break;
+	  case 1:
+		  day="월";
+		  break;
+	  case 2:
+		  day="화";
+		  break;
+	  case 3:
+		  day="수";
+		  break;
+	  case 4:
+		  day="목";
+		  break;
+	  case 5:
+		  day="금";
+		  break;
+	  case 6:
+		  day="토";
+		  break;
+		  default:
+			  day="요일아님!";
+	  }
+	  
+	  document.write(day+"요일 <br>");
+	  
+	  
+	  // 오늘 날짜정보를 출력해주는 함수
+	  // toDay() -" 2020년 12월 8일 화요일"
+	  function toDay(){
+		  // 오늘 날짜정보를 저장하는 객체
+		  var d = new Date();
+		
+	      var day ="";
+		  switch(d.getDay()){
+		  
+		  case 0:
+			  day="일";
+			  break;
+		  case 1:
+			  day="월";
+			  break;
+		  case 2:
+			  day="화";
+			  break;
+		  case 3:
+			  day="수";
+			  break;
+		  case 4:
+			  day="목";
+			  break;
+		  case 5:
+			  day="금";
+			  break;
+		  case 6:
+			  day="토";
+			  break;
+			  default:
+				  day="요일아님!";
+		  } //switch-case 끝
+		  
+		  // 정보 출력
+		  document.write(d.getFullYear()+"년 ");
+		  document.write((d.getMonth()+1)+"월 ");
+		  document.write(d.getDate()+"일 ");
+		  document.write(day+"요일 <br>");
+		  
+	  }// toDay() 함수 끝
+	  
+	  
+	  toDay();
+	  toDay();
+	  toDay();
+	  
+	  document.write("<hr>");
+	  
+	  // 2002.5.31 월드컵 개최 -> 요일 출력
+	  var wc2002 = new Date("2002/5/31");
+// 	  var wc2002 = new Date("2002/6/31");
+	  
+	  document.write(wc2002.getFullYear()+"년 ");
+	  document.write((wc2002.getMonth()+1)+"월 ");
+	  document.write(wc2002.getDate()+"일 <br>");
+	  var day ="";
+	  switch(wc2002.getDay()){
+	  
+	  case 0:
+		  day="일";
+		  break;
+	  case 1:
+		  day="월";
+		  break;
+	  case 2:
+		  day="화";
+		  break;
+	  case 3:
+		  day="수";
+		  break;
+	  case 4:
+		  day="목";
+		  break;
+	  case 5:
+		  day="금";
+		  break;
+	  case 6:
+		  day="토";
+		  break;
+		  default:
+			  day="요일아님!";
+	  }
+	  
+	  document.write(day+"요일 <br>");
+	  
+	  
+	  document.write(day1.getHours()+"시 ");
+	  document.write(day1.getMinutes()+"분 ");
+	  document.write(day1.getSeconds()+"초 <br>");
+	  //////////////////////////////////////////////
+	  
+	  // D-Day 계산 프로그램
+	  // 남은일수(밀리센컨드 msc) = 특정 날짜 객체 - 현재 날짜 객체
+	  /*
+	    1초 = 1000 msc
+	    1분 = 1000 * 60 msc
+	    1시간 = 1000 * 60 * 60 msc
+	    1일 = 1000 * 60 * 60 * 24 msc	  
+	  */
+	  //오늘 ~ 연말 (20.12.31) 남은 일수를 계산 출력
+	  
+	  document.write("<hr>");
+	  var today = new Date();
+	  var Dday = new Date("2020/12/31");
+	  //var Dday = new Date(2020,11,31);
+	  
+	  document.write( Math.ceil((Dday - today)/(1000 * 60 * 60 * 24)) );
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+</body>
+</html>

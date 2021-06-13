@@ -1,0 +1,41 @@
+JSTL.txt
+
+
+http://tomcat.apache.org/
+https://tomcat.apache.org/download-taglibs.cgi
+Impl:
+taglibs-standard-impl-1.2.5.jar (pgp, sha512)
+Spec:
+taglibs-standard-spec-1.2.5.jar (pgp, sha512)
+EL:
+taglibs-standard-jstlel-1.2.5.jar (pgp, sha512)
+
+다운로드
+
+
+p510~ 
+
+JSTL : 자카르타에서 제공하는 자주 사용되는 커스텀 태그를 모아놓은 라이브러리
+
+ 1) core 라이브러리 : 기본적인 기능
+   - 변수선언, 조건문, 반복문
+   - 페이지 이동
+   
+ 2) fmt(Fommatting) 라이브러리 : 국제화/형식화 표현가능
+   - 다국어 처리, 특정 형태의 데이터 표현
+   
+ 3) sql(DB) 라이브러리 : 데이터 베이스 관련 처리
+   - CRUD 및 조회가능
+   
+ 4) xml라이브러리 : xml문서 코드를 처리    
+
+
+
+
+
+p519~
+
+
+
+
+

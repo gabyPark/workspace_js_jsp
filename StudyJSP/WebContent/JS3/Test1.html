@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+  <h1>WebContent/JS3/Test1.html</h1>
+  <script type="text/javascript">
+    // 함수 (메서드) : 실행문을 저장하는 장소 - 특정 동작(기능)을 정의
+    
+    // 함수의 선언
+    /* function 함수명(전달인자){
+    	실행문;
+    	...
+    } */
+    
+    // 함수의 호출
+    /* 함수명(전달인자 값) */
+    
+    // 익명 함수(이름이 없는 함수)
+//     var 참조변수 = function(){
+//     	실행문;
+//     }
+    // 익명 함수 호출
+//         참조변수명()
+    
+    
+    
+    //"안녕하세요"  x 5번출력
+    for(var i=0;i<5;i++){
+    	document.write("안녕하세요~ <br>");    	
+    }
+    
+    // 기능 -> 함수 생성
+    function Hello5(){
+    	for(var i=0;i<5;i++){
+        	document.write("안녕하세요~ <br>");    	
+        }
+    }
+    
+    document.write("<hr>");
+    // 함수 호출
+    Hello5();
+    document.write("<hr>");
+    document.write("3300줄 아래<br>");
+    Hello5();
+    //var num=100;
+    //document.write(num);
+    
+    // 이름 => 변수,상수
+    // 이름() => 함수
+    // 이름.이름 => 객체 변수
+    // 이름.이름() => 객체 함수
+    
+    
+    // GoodBye 5번 출력하는 함수생성(익명함수)
+    var gb = function(){
+    	for(var i=0;i<5;i++)
+    		document.write("GoodBye!!<br>");
+    }
+    
+    // 함수 호출
+    gb();
+    
+    // 매개변수 : 함수 안에서 사용하기 위해서 임시로 저장하는 공간
+    // 매개변수가 있는 함수
+    /* function 함수명(data1,data2,....){
+    	data1 + data2;
+    	
+    } */
+    
+    // 함수 호출
+    // 함수명(매개변수값,매개변수값,....);
+    // Hello~ 메세지 출력 -> 함수를 사용해서 출력
+    // 함수 호출시 횟수를 입력받아서 사용
+    function sayHello(cnt){
+    	for(var i=0;i<cnt;i++)
+    		document.write("Hello~"+i+"<br>");
+    }
+    
+    //sayHello();  (x)
+    sayHello(5);
+    
+    // 정보를 리턴해주는 함수
+    /* function 이름() {
+    	
+		return 값;
+	} */
+	
+	// 숫자 2개를 입력받아서 , 두개의 합을 계산해서 리턴해주는 함수 
+	// myAdd(a,b)
+	function myAdd(number1,number2){
+		//var result = number1 + number2;
+		
+		//return result;
+ 		return number1+number2;
+	}
+	
+	var tmp = myAdd(10,20);
+	var tmp = myAdd(10,200);
+	document.write(tmp);
+	
+	/*
+	 함수
+	 1) 이름 o : 함수   - 매개변수 O  - 리턴 O 
+	                            - 리턴 X
+	                - 매개변수 X  - 리턴 O 
+	                            - 리턴 X
+	 2) 이름 x : 익명함수
+	
+	*/
+	
+	// 정수 1개를 입력받아서 -> 해당 정수의 절대값을 계산해주는 함수
+	// myABS()  : 양수 -> 양수, 음수 -> 양수
+	function myABS(n){
+	/* 	if(n>=0){
+			document.write("|"+n+"| -> "+n+"<br>");
+		}else{
+			document.write("|"+n+"| -> "+(-n)+"<br>");
+		} */		
+		
+	/* 	if(n<0){
+			n = -n;
+		}
+		document.write("|"+n+"| -> "+(n)+"<br>"); */
+		
+		
+		document.write("|"+n+"| -> "+(n<0? -n:n)+"<br>")
+	}
+	
+	myABS(100);
+	myABS(-100);
+	
+	
+	// 숫자 1개를 입력받아서 1~ 입력받은 숫자 까지의 합을 출력하는 함수
+	// mySum()    sum(5) : 1~5까지의 합, sum(100) :1~100까지의합
+	
+	function mySum(a){
+		var sum = 0;
+		for(var i =1;i<=a;i++){
+			sum += i;
+		}
+		
+		document.write("결과 : "+sum+"<br>");		
+	}
+	
+	mySum(10);
+	mySum(100);
+	
+	// 계산기 함수 myCalc()
+	// 인자 3개를 입력 =>  숫자  연산 숫자  ex)  10 + 20 myCalc(10,"+",20)
+	// 연산( + - * / % )을 처리해주는 계산기
+	// 연산의 결과를 리턴 -> 리턴받아서 출력
+	
+	function myCalc(num1,op,num2){
+		var result = 0;
+		
+		switch(op){
+		case "+":
+			result = num1+num2;
+			break;
+		case "-":
+			result = num1 - num2;
+			break;
+		case "*":
+			result = num1 * num2;
+			break;
+		case "/":
+			result = num1 / num2;
+			break;
+		case "%":
+			result = num1 % num2;
+			break;
+			
+		default: 
+			alert("처리 불가능한 연산자 입니다!");
+		    result = -99999999;
+		}		
+		
+		return result;		
+	}
+	
+	
+	
+	var cResult = myCalc(100, "-", 50); 
+	var cResult = myCalc(100, "@", 50); 
+	document.write("결과 : "+cResult+"<br>");
+    
+    
+	// 내장 함수 : 자바스크립트 내부에 포함되어있는 함수
+	//           -> 직접 함수를 선언하지 않아도 바로 사용가능 
+	//alert("test");
+	//confirm("test");
+	//prompt();
+	
+	
+	/* function fun(){
+		코드1
+		코드2
+		return;
+		코드3		
+	} */
+	
+	// 1. return;   함수를 종료
+	// 2. return 값;  함수를 실행후 값을 리턴
+	
+	// 함수 목적 : 실행문을 여러개 실행, 결과를 리턴
+	function fun(){
+		alert("1");
+		alert("2");
+		//return;
+		return 100; // 값 리턴 -> 함수의 역활 X
+		// 리턴문 다음에 나오는 코드는 실행 X (리턴문은 가장 마지막에 작성)
+		alert("3");
+		alert("4");
+		alert("5");
+	}
+	
+	//fun();
+	
+	// 재귀함수 : 함수 안에서 다시 함수 호출구문
+	var num =0;
+	function fun2(){
+		num++;
+		document.write(num+"<br>");
+		
+		if(num == 10) /* break; */
+		   return;
+		
+		fun2();
+	}
+	
+	//fun2();
+	
+	// 전역변수 : 코드 전역에서 사용가능한 변수
+	// 코드 생성시 -> 생성, 프로그램 종료시 -> 삭제
+	var data=100;
+	
+	function fun3(){
+		// 지역변수 : 지역에서만 사용가능한 변수
+		// 함수 호출시 -> 생성, 함수 호출 종료시 -> 삭제
+		// => 지역변수의 값을 지역 밖에서 사용할경우 값을 리턴
+		var data=200;
+		document.write("@@@@ "+data+"<br>");
+	}
+	
+	if(true){
+		
+	}
+	
+	fun3();
+	
+	document.write(data);
+	
+	
+	
+	
+  
+  </script>
+  
+  
+  
+  
+  
+  
+
+</body>
+</html>

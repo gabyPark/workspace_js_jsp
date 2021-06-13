@@ -1,0 +1,125 @@
+/WebContent/서블릿.txt
+
+서블릿 -> jsp파일 -> java 파일 
+
+* Java SE -> 순수 자바 -> 자바 응용프로그램  
+* Java EE 1.8 -> SE + 서버에 필요한 프로그램(Servlet,JSP,JSTL,JTA,EJB...)
+ 
+ * JSP란? Java Server Page의 약자로, 클라이언트의 요청을 바탕으로 동적 컨텐츠(DB)를
+ 생성하여 처리하는 기술
+   JSP2.2 ~ Servlet 3.0
+   JSP2.3 ~ Servlet 3.1 => tomcat 8버전을 지원
+   
+   
+   *JSP와 Servlet 관계
+     jsp (html,java), Servlet(java)
+     => 프로젝트 실행(웹 컨테이너 실행,tomcat 실행)
+     
+     1) 사용자 요청 http://www.naver.com
+     2) jsp 페이지 호출 -> jsp 컨테이너 실행
+     3) .jsp -> .java 파일로 자동 변경 => 서블릿
+     4) .java -> .class 파일로 자동 변경(컴파일)
+     5) 해당 결과를 실행해서 사용자에게 응답
+   
+   
+   * 서블릿(Servlet)
+    - 자바를 사용해서 웹 애플리케이션을 개발하는 기술
+    - 멀티 쓰레딩방식으로 처리 (효율이 좋다)
+    - 동적데이터 처리 가능
+    
+  * 서블릿 생성 규칙
+   1) javax.servlet.Servlet 인터페이스 구현
+   2) 1)번을 구현하기 힘든경우, javax.servlet.http.HttpServlet 클래스 상속 사용
+   3) doGet(),doPost() 메서드를 생성해서 사용해야함. (메서드 오버라이딩)
+   4) 3)번 메서드 생성시  javax.servlet.http.HttpServletRequest,
+      javax.servlet.http.HttpServletResponse 전달인자를 구현해야함.
+   5) java.io.IOException, javax.servlet.ServletException을 처리
+   6) web.xml 을 사용해서 서블릿과 URL을 매핑 (서블릿3.0 이상 필수 X)   
+      
+   
+   *서블릿 사용
+   [최초 실행시]
+   1. 클라이언트 최초 요청
+   2. 톰캣(was) 호출 -> 서블릿 객체 생성
+   3. init() 호출(초기화)
+   4. service() 호출 -> doGet(),doPost() 호출
+   5. 결과 처리 후 응답정보를 톰캣으로 전달
+   6. 결과를 사용자(클라이언트)에 전달 => 화면 출력
+   
+   [이후 실행시]
+   1. 클라이언트 요청
+   2. 톰캣(was) 호출 -> 서블릿 객체 생성
+   3. service() 호출 -> doGet(),doPost() 호출
+   4. 결과 처리 후 응답정보를 톰캣으로 전달
+   5. 결과를 사용자(클라이언트)에 전달 => 화면 출력
+   
+   
+   D:\workspace_jsp5\.metadata\.plugins\org.eclipse.wst.server.core
+   \tmp1\work\Catalina\localhost\ServletJSP\org\apache\jsp
+   
+   // Model2구조 (MVC패턴)  => 실제 업무와 가까운 형태
+   // Model - java
+   // View - jsp
+   // Controller - jsp/java=> Servlet
+   
+   
+   * JSP -> Servlet 변경(자동)
+   1) 웹 애플리케이션에서 생성된 jsp 페이지는 최초 요청시 서블릿으로 변환
+   2) JSP : 스크립틀릿 <% %> 작성된 코드 -> 서블릿-service()메서드안에 구현
+   3) JSP : 표현식 <%= %>    "   -> 서블릿-service() 안에서 out.println() 메서드 표현
+   4) JSP : 선언문 <%! %>  "  ->  서블릿 멤버 메서드,변수 형태로 선언
+   5) HTML : HTML 코드   -> 서블릿-service()안에서 out.write()변환
+   6) page 디렉티브 <%@ page %>  -> 서블릿 객체 생성시 필요한 정보로 변환 
+   
+   
+   
+   * html (정적페이지) 실행동작
+   
+   1) 클라이언트가 URL을 입력-> www.itwillbs.co.kr
+   2) DNS서버가 URL주소 -> IP 주소로 변경
+      (www.itwillbs.co.kr -> 192.168.5.200/itwill.jsp)
+   3) 해당 주소를 사용해서 페이지 요청(request)
+   4) WEB서버 -> html,img등을 처리 
+   5) 웹서버가 클라이언트의 처리 응답을 진행
+   6) DNS가 IP 주소->URL으로 변경 -> 정보 전달(response)
+   7) 전달받은 정보를 HTML 문서를 분석(브라우저) -> 화면
+   
+   * JSP (동적페이지) 실행동작
+   
+   1) 클라이언트가 URL을 입력-> www.itwillbs.co.kr
+   2) DNS서버가 URL주소 -> IP 주소로 변경
+      (www.itwillbs.co.kr -> 192.168.5.200/itwill.jsp)
+   3) 해당 주소를 사용해서 페이지 요청(request)
+   4) WEB서버 -> html,img등을 처리 -> WAS서버 -> JSP,DB
+      JSP파일을 처리하는 컨테이너 생성(객체) -> java
+      -> 해당파일을 컴파일 해서 사용 -> .class => (DB)
+      => 정보를 받아서 WAS가 WEB서버로 정보를 전달   
+   5) 웹서버가 클라이언트의 처리 응답을 진행
+   6) DNS가 IP 주소->URL으로 변경 -> 정보 전달(response)
+   7) 전달받은 정보를 HTML 문서를 분석(브라우저) -> 화면
+     
+   
+   p143
+   서블릿에서 페이지 이동하는 방법
+   1) Dispatcher 방식 -> 포워딩
+      forward 방식으로 페이지 이동
+      - 주소의 변경없이 화면만 전환
+      - request (영역객체) 사용가능하다.
+   
+   2) Redirect 방식
+      response 객체 사용 이동 -> sendRedirect();
+      - 주소의 변경, 화면의 변경
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+

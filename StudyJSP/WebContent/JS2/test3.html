@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <h1>WebContent/JS2/test3.html</h1>
+  <!-- 강사용  -->
+  <script type="text/javascript">
+    // 반복문 : for,while,do-while
+     
+   /* for(초기식;조건식;증감식){
+	   반복할 코드내용
+   } */
+   
+   // "안녕하세요"  X 5 출력
+   document.write("안녕하세요 <br>");
+   document.write("안녕하세요 <br>");
+   document.write("안녕하세요 <br>");
+   document.write("안녕하세요 <br>");
+   document.write("안녕하세요 <br>");
+
+   document.write("<hr>");
+   // 반복문을 사용할때 한줄만 반복할경우 {} 생략가능 => 하지만 생략X
+  /*  for(var i=1;i<=5;i++){
+	  document.write("안녕하세요! <br>");
+   } */
+   for(var i=0;i<5;i++){
+		  document.write("안녕하세요! <br>");
+	   }
+   
+   // 1~10가로 출력
+   for(var i=1;i<=10;i++){
+	   document.write(i+" ");
+   }
+   //20 ~ 50 가로출력
+   
+   // 구구단 2단
+  /*   [2단]
+   2 * 1 = 2
+   ...
+   2 * 9 = 18 */
+   
+   document.write("<br>[2단]<br>");
+   for(var i=1;i<=9;i++){
+	   document.write("2 * "+i+" = "+(2*i)+"<br>");
+   }
+   
+   document.write("<hr>");
+   
+   // 출력 1~10까지 세로 출력
+   // 출력되는 글자의 색상을 변경 
+   for(var i = 1;i<=10;i++){
+	   //->  2의 배수 red 출력
+	   if( i % 2 == 0 ){
+	    document.write( "<font color='red'>" + i + "</font><br>");
+	   }else if( i % 3 == 0 ){
+	   //->  3의 배수 blue 출력
+		 document.write( "<font color='blue'>" + i + "</font><br>");
+	   }else if(i % 5 ==0){
+	   //->  5의 배수 green 출력
+		 document.write( "<font color='green'>" + i + "</font><br>");
+	   }else{
+		 document.write( i + "<br>");
+		   
+	   }
+   }
+   
+  
+   
+   // while 반복문 -> 용도 있음
+    /*  초기식
+   while(조건문){
+	   반복문장;
+	   증감식
+   } */
+   
+   
+   // 1~10가로 출력
+//    for(var i=1;i<=10;i++){
+// 	   document.write(i+" ");
+//    }
+   // 1~10 까지 가로 출력 while 사용
+   // 1 2 3 4 5 6 7 8 9 10
+   var i = 1;
+   while(i<=10){
+	   document.write(i+" ");
+	   i++;	  
+   }
+   
+   document.write("<hr>");
+   // 1~10 까지 숫자 홀수만 출력 for 1 3 5 7 9
+   for(var i =1;i<=10;i+=2){  // i = i + 2
+      document.write(i+" ");
+      //i++;	   
+   }
+   
+   // 1~10 까지 숫자 짝수만 출력 while 2 4 6 8 10
+	var i = 2;
+   while(i<=10){
+	   document.write(i+" ");
+		//i+=2;
+		i = i + 2;
+	}
+   
+   document.write("<hr>");
+ 
+   var i = 1;
+   while(i++ <= 4){
+	   document.write(i+" ");
+	   
+   }
+   document.write("<hr>");
+   // 누적합 : 특정 숫자 까지의 합 계산
+   
+   // 1 + 2 = 3
+   // 1 + 2 + 3 + 4 + 5 = 15
+   // 1 + ..... + 10 = 55
+   // 1 + .... + 123123123123 = ?
+   var sum = 0;	   
+   for(var i = 2;i<=10;i++){ // 0~10
+	   	sum += i;	   
+   }
+   document.write(" 결과 : "+sum);
+   document.write("<hr>");
+   
+   // while문
+   sum = 0;
+   var i = 2;
+   while(i<=10){
+		sum += i;
+		i++;
+   }
+   document.write(" 결과 : "+sum);
+   document.write("<hr>");
+    	
+   // do-while()문
+     //  초기식; 
+  /*   do{
+    	반복할 문장;
+    	증감식;
+    }while(조건식); */
+   
+    var i = 0;
+    while(i++ <= 4){
+    	document.write(i+" ");
+    }
+    
+    document.write("<hr>");
+    
+    var i = 1;
+    do{
+    	document.write(i+" ");
+    }while(i++ <= 4);
+    
+    document.write("<hr>");
+    
+    for(var i =1; i<=5;i++);
+    document.write("i = "+i+"<br>");
+    
+    // 다중반복문(이중반복문 - 이중for문)
+    // => 테이블 (행렬)
+    
+/*     for(초기식;조건식;증감식){
+    	
+    	for(초기식;조건식;증감식){
+    		
+    	}
+    	
+    } */
+    
+    // 시계 시침(OUT), 분침(IN)
+    // 4시 - > 5시 
+    // 분침 0 -> 60(0)
+    
+    document.write("<hr>");
+    
+    for(var i=1;i<=5;i++){ // 1~5시
+    	document.write(i+"시<br>");
+    
+    	for(var j=0;j<=60;j++){ // 0분~ 60분
+    		document.write(i+"시"+j+"분 <br>");
+    	}
+    	
+       document.write("<hr>");
+    
+    }
+    
+    document.write("<hr>");
+    
+    // 구구단 출력  (2~ 9단)
+    /*
+      [2단]
+    
+    2 * 1 = 2
+    2 * 2 = 4
+     ...
+     [3단]
+     ....
+     
+     [9단]
+    
+    ...
+     9 * 9 = 81
+    */
+    
+    // 2~9단
+    for(var dan=2;dan<=9;dan++){
+    	document.write(dan+"단 <br>");
+    	 // 1~9
+    	 for(var i=1;i<=9;i++){
+    		 document.write(dan + " * "+ i +" = " +(dan * i)+"<br>");
+    	 }   
+    	 document.write("<hr>");
+    }
+    
+    document.write("<hr>");
+    document.write("<hr>");
+    
+    // 보조 제어문 : 반복문 안에서 사용되는 보조 제어문
+    // break문, continue문
+    
+    // break문 : 반복문 안에서 실행시 해당 반복문을 탈출
+    for(var i=1;i<10;i++){
+    	document.write(i+" ");
+    	
+    	if (i % 3 == 0) {
+    		break;
+    	}
+    }
+    document.write("<hr>");
+    document.write("<hr>");
+    // continue : 해당구문을 실행시 다음 반복구문으로 진행( 아래쪽의 코드를 실행 x )
+  	for(var i=1;i<10;i++){
+  		if (i % 3 == 0) {
+    		continue;
+    	}
+    	document.write(i+" ");  	
+    }
+    
+  	document.write("<hr>");
+    document.write("<hr>");
+    
+    // 이중for문에서는 break문을 사용할경우 가장 가까운 반복문 하나를 탈출
+    for(var i=1;i<=5;i++){
+    	for(var j=1;j<=5;j++){
+    		if(i==3) break;
+    	   document.write(i+" - "+j+"<br>");	
+    	}
+    }
+    document.write("<hr>");
+    document.write("<hr>");
+    
+    // 무한 반복문(루프) : 왜 사용하는가? 문제의 끝을 알수 없을때 
+    		// 해당문제의 결과를 확인한경우 -> break문사용 반복문 탈출
+   /*  for(;;){
+    	// 조건문을 기록X -> 무한루프 -> 조건이 참(true)
+    } */
+    /* for(var i=0;true;i++){
+    	document.write(i+"<br>");
+    	//console.log(i);
+    } */
+    
+  /*   while(true){
+    	
+    }
+    do{
+    	
+    }while(true);
+     */
+     
+     
+     
+    
+    
+    
+    
+  
+  </script>  
+  
+  
+  
+
+
+</body>
+</html>

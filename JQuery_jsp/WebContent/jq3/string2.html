@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery_jsp / WebContent / jq3 / string2.jsp</title>
+
+<script src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+	
+		$.ajax({
+			url:"string2.jsp",
+			data: {
+				name:'홍길동',
+				age:20
+			},
+			type:"post",
+			// ajax는 인코딩을 하지 않아도 한글이 깨지지 않음!
+			success:function(data){   
+			// data 이 변수는 아무거나 넣어주기
+				alert("성공");
+				$('body').append(data);
+			}
+		});
+	
+	});
+</script>
+
+</head>
+<body>
+
+<h2>JQuery_jsp / WebContent / jq3 / string2.jsp</h2>
+
+</body>
+</html>

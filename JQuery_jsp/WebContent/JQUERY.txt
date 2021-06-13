@@ -1,0 +1,100 @@
+JQUERY.txt
+
+ JQuery?
+  => 자바스크립트를 조금더 쉽게 사용하기위해서 기능으로 만들어진 언어(프레임워크)
+  => Ajax,JSON,XML....
+  => 자바스크립트 함수의 집합.
+  
+  jquery 다운로드
+  https://jquery.com/
+  
+   압축버전/ 비압축버전 상관없이 사용
+   
+   CDN -> 네트워크가 가능한 어떤곳에서 바로 받아서 사용가능
+   
+   https://code.jquery.com/
+   
+   https://developers.google.com/speed/libraries#jquery
+   
+   https://docs.microsoft.com/en-us/aspnet/ajax/cdn/overview#jQuery_Releases_on_the_CDN_0
+
+   https://cdnjs.com/libraries/jquery
+	
+   https://www.jsdelivr.com/package/npm/jquery
+   
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>  
+  
+  
+  
+  * 상대경로, 절대경로
+  
+  절대경로 : 파일, 웹페이지가 가지고있는 고유한 경로
+  
+  - 자체 주소정보를 알고있다면, 바로 이동해서 실행(사용)가능
+  - 시작지점에 '/'(root)를 사용
+  - JSP(model2)
+    => 가상주소 : ~.me  프로젝트 폴더(프로젝트명) - root
+    => 실제주소 : ~.jsp WebContent폴더 - root
+    
+  상대경로 : 파일이 위치한 폴더를 기준으로 시작지점을 설정하는 경로
+  
+  /   : 파일이 있는 폴더의 최상위경로 
+  ./  : 현재 폴더경로
+  ../ : 상위 폴더 이동
+  
+  
+  * Ajax(Asynchronous JavaScript and XML) 
+   =>  비 동기방식의 javaScript, xml
+   
+   => 서버의 데이터는 사용가능하지만, 페이지는 동기화 X
+   => 서버의 HW이 높아지면서 사용, 다양한 기기의 활성화
+   => 페이지 이동없이 처리됨(사용자가 안보이는 뒷편에서 이동)
+   => 항상 페이지를 갔다가 옴. => Ajax 많은 사용은 -> 성능저하 
+   
+   
+   * 서버 동기화 방식
+   * 클라이언트   -> 요청 (naver.com) -> 웹서버(WEB) -> WAS -> DB
+              <-     응답           <-              <-     <-
+  
+   => 동작을 실행할때마다 페이지 리로딩(페이지 깜빡)
+  
+   * 서버 비동기 방식 
+   * 클라이언트 -> 요청 (naver.com) -> 웹서버  -> was -> DB
+             <-  응답                     <-
+  
+   => 동작을 실행할때 페이지 이동O,페이지 깜빡X  
+  
+  
+  
+  
+  * Ajax 사용
+  
+   $.ajax(주소,옵션);
+   $.ajax({
+      url:"이동할 페이지",
+      type:"전송방식(get/post)",
+      data:"전송할 데이터",
+      dataType:"요청한 데이터타입(html,xml,json,text)",
+      success:function(result){
+                 전송 성공시 실행할 코드 
+         result : 요청한 데이터
+      },
+      error:function(){
+                전송 실패시 실행할 코드
+      },
+      complete:function(){
+         ajax 완료 되면 실행하는 함수
+      }   
+   });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+
+

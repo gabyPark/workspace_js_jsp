@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>WebContent/JS3/Test7.html</h1>
+	
+	<script type="text/javascript">
+	  // screen 객체 : 사용자의 모니터 정보제공 객체 
+	   /* 모니터 가로,세로 */
+	   document.write("width : "+screen.width+"<br>");
+	   document.write("height : "+screen.height+"<br>");
+	   /* 모니터 - 작업표시줄 길이 가로,세로 */
+	   document.write("avaiWidth : "+screen.availWidth+"<br>");
+	   document.write("avaiHeight : "+screen.availHeight+"<br>");
+	  
+	   document.write("<hr>");
+	   
+	   // navigator 객체 : 현재 방문자가  사용하자는 브라우저 정보,운영체제 정보 제공
+	   
+	   document.write("브라우저 코드명 : "+navigator.appCodeName+"<br>");
+	   document.write("브라우저 이름 : "+navigator.appName+"<br>");
+	   document.write("브라우저 버전 : "+navigator.appVersion+"<br>");
+	   document.write("브라우저 사용언어 : "+navigator.language+"<br>");
+	   document.write("브라우저 사용엔진 : "+navigator.product+"<br>");
+	   document.write("브라우저 실행 운영체제 : "+navigator.platform+"<br>");
+	   
+	   document.write("<hr>");
+	   
+	   document.write("방문자 정보  : "+ navigator.userAgent+"<br>");
+		   
+	
+	</script>
+	
+	<hr>
+	
+	<script type="text/javascript">
+	  function fun1(){
+		 //alert("클릭!");
+		 // 이미지정보는 해당문서(document)안에 배열로 저장
+		 // 값이 없는 배열의 경우-undefined 값을 리턴
+		 
+		 //alert(" 이름 : "+document.images[0]);
+		 alert(" 이름 : "+document.images[0].name);
+		 console.log(document.images[0]);
+		 //alert(" 이미지 주소 : "+document.images[0].src);
+		 alert(" 이미지 주소 : "+document.img1.src);
+		 alert(" 이미지 태두리 두께 : "+document.img1.border);
+		 alert(" 가로길이 : "+document.img1.width);
+		 alert(" 세로길이 : "+document.images[0].height);
+	  }	
+	  
+	  function fun2(){
+		  // w : 300 h : 200
+		  document.img1.width = 300;
+		  document.images[0].height = 200;
+		  document.img1.border =2;
+	  }
+	  
+	</script>	
+	<h2> 이미지 태그 </h2>
+	
+	<img src="1.jpg" name="img1"><br>
+	<img width="300" height="200" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAxODAyMjhfMjM5%2FMDAxNTE5NzY1NDM3OTg3.Qkz8ZxPNxEerAJ_xFP91EbndOCcCJkNPtFHPNJO5KYMg.zzv8jlaVaQY8m_sX3gsgdJIhn8oHZdiNzynoBRKMC0cg.JPEG.sjk7782%2F0-0-44_%25B0%25DC%25BF%25EF_%25C7%25B3%25B0%25E6_%25BB%25E7%25C1%25F8.jpg&type=sc960_832">
+	
+	<hr>
+	<input type="button" value="이미지 정보" onclick="fun1()">
+	<hr>
+	
+	<!-- 버튼 클릭시 => 1.jpg 그림의 크기 변경 w: 300,h:200  -->
+	<input type="button" value="이미지 속성변경하기" onclick="fun2();">
+	<hr>
+	
+	<script type="text/javascript">
+	  var n = 0;
+	  function fun3(){
+		  // 1.jpg를 제외한 나머지 이미지를 랜덤하게 변경
+		  // 2~6 랜덤값  //2<= x < 7
+		  //var r = Math.floor(Math.random()*5)+2;
+		  //document.images[2].src= r+".jpg";		  
+		  //document.images[2].src="2.jpg";	
+		  var imgArr =["2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"];
+		  
+		  document.images[2].src = imgArr[n];
+		  n++;
+		  if(n>4){
+			  n=0;
+		  }
+		  
+	  }
+	  
+	  function fun4(){
+		  document.img2.src="1.jpg";
+	  }
+	
+	</script>
+	<!-- 
+	   마우스 올릴때 마다 그림변경(+ 그림이 매번 변경) 
+	 -->
+	<img src="1.jpg" name="img2" onmouseover="fun3();" 
+	  onmouseout="fun4();"
+	>
+	
+	
+	
+	
+
+
+
+</body>
+</html>

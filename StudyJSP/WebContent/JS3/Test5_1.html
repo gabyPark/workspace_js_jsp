@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이티윌 Document 객체 연습</title>
+</head>
+<body>
+
+   <h1>WebContent/JS3/Test5_1.html</h1>
+   
+   
+   <input type="button" value="새창닫기" 
+      onclick="window.close();"
+   >
+   
+   <hr>
+   <script type="text/javascript">
+     // document : window객체의 하위 객체, 화면에 표현하는 방법
+     
+     // window객체 생략 가능
+     window.document.write("출력");
+     document.write("출력");
+     
+     // document 객체의 속성 / 동작  
+     
+     function fun1(){
+    	 //alert("버튼 동작 확인!");
+    	 alert("title : "+window.document.title);
+    	 alert("bgColor : "+document.bgColor);  // 배경색
+    	 alert("location : "+document.location);
+    	 alert("fgColor : "+document.fgColor); // 글자색
+     }
+     
+     function fun2(){
+    	 // document 객체의 배경색을 변경
+    	 document.bgColor = "pink";
+    	 // document 객체의 글자색을 변경
+    	 document.fgColor = "red";
+     }
+     
+     // "red","green","blue","yellow","pink","orange","black"
+     // 버튼 클릭시 마다 랜덤하게 배경색을 변경
+      document.write( Math.floor(Math.random()*10)+1 );
+     
+     function fun3(){
+    	 var col = ["red","green","blue","yellow","pink","orange","black"];
+    	 var r = Math.floor(Math.random()*7);
+    	 
+    	 //document.write(col[0]);
+    	 document.bgColor = col[r];
+     }
+     
+     
+     // ~ onclick="fun4('red')">
+     
+     function fun4(c){
+    	 //document.bgColor = "red";
+    	 document.bgColor = c;
+    	 
+     }
+   /*   function fun5(){
+    	 document.bgColor = "blue";
+     }
+     function fun6(){
+    	 document.bgColor = "green";
+     } */
+     
+     
+   
+   </script>
+   
+   <input type="button" value="document 속성" onclick="fun1();">
+   <br>
+   <!-- 버튼 1개 생성
+        버튼 클릭 이벤트 발생시 , 배경색 -> yellow 변경 + 글자색 변경 -red
+    -->
+    <input type="button" value="document 배경색변경" 
+        onclick="fun2();"
+    >
+     <br>
+    <input type="button" value="document 배경색변경(랜덤)" 
+        onclick="fun3()"
+    >
+   <br><br>
+   <!-- 라디오 버튼은 동일한 이름을 가지고있을때 그룹으로 처리
+              동일한 그룹중에서 하나만 선택해야하는 경우
+    -->
+    <!-- 라디오버튼 클릭시 각각의 색으로 배경색 변경 -->
+    <input type="radio" name="c" value="red" onclick=" fun4('red') "> RED 
+    <input type="radio" name="c" value="blue" onclick="fun4('blue')"> BLUE
+    <input type="radio" name="c" value="green" onclick="fun4('green')"> GREEN
+   
+   <hr>
+   <h2>location 객체</h2>
+   <script type="text/javascript">
+     //location 객체 : 브라우저(window)안에 있는 url에 대한 속성,동작사용
+        
+     function fun1(){
+    	 //alert("location 속성확인!");
+    	 alert("href : "+window.location.href); // URL
+    	 //location.href="Test5.html"; //주소의 속성값변경(페이지이동)
+    	 alert("hostname : "+location.hostname); // 컴퓨터이름
+    	 alert("port : "+location.port); // 프로그램 고유번호
+    	 alert("host : "+location.host); // 이름 + 고유번호
+    	 alert("protocol : "+location.protocol); // 통신규약
+    	 alert("search : "+location.search); // 쿼리스트링을 가져옴
+    	 // -> 주소줄에 ?뒤에 나타나는 정보 => 쿼리스트링
+     } // fun1()끝
+   
+     // 페이지 새로고침(F5) 특수한 조건에 따라 실행 
+     // window.location.reload();
+     // 페이지 이동
+     // location.replace("http://www.naver.com");
+   
+   </script>
+   
+   <input type="button" value="location 속성" onclick="fun1()">
+   
+   
+   
+   
+   
+   
+
+</body>
+</html>

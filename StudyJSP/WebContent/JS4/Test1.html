@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <script type="text/javascript">
+     /*
+      window - document - form태그
+      (window.)document.forms[i].속성
+      (window.)document.form태그이름.속성
+     */
+      function fun1(){
+    	  alert("폼태그 속성(정보)");
+    	  alert("name : "+window.document.forms[0].name);
+    	  alert("action : "+window.document.fr.action);
+    	  alert("method : "+window.document.forms[0].method);
+      }
+     
+      // 버튼 추가후 - 이벤트처리 : 클릭시 이동하는 페이지의 이름 - ABC.html
+      //                         "  전달방식 - post
+      
+      function fun2(){
+    	  alert(" 속성 변경하기 ");
+    	  document.fr.action = "ABC.html";
+    	  document.fr.method = "get";    	  
+          // submit() 함수 : 폼태그 안에있는 input태그의 정보를 저장해서 전달
+          document.fr.submit();
+      }
+      
+      function fun3(){
+    	  // 이동하는 페이지를 A.html 페이지로 변경
+    	  document.fr.action = "A.html";
+      }
+      
+     
+     
+   
+   </script>
+
+
+	<h1>WebContent/JS4/Test1.html</h1>
+	<h2>window-document-form태그</h2>
+	
+	<!-- JSP 책 p24~ -->
+	<!-- 
+	   HTTP 프로토콜 : 요청(request), 응답(response)
+	   
+	   - GET 방식 : 전송할 파라미터값을 주소(URL)에 붙여서 전달
+	               길이 256byte를 넘을수 없음(데이터 길이의 제약)
+            body(본문)이 필요없음 -> 처리속도가 빠름(상대적)
+                      적은양의 데이터를 전송시 사용
+            -> 주소줄에 중요데이터를 모두 표시  (보안에 취약)
+            => www.itwillbs.co.kr?name='abc'&age=12
+            => ?뒤에 나오는 데이터 Querystring이라고 부름 (파라미터 데이터)       
+	   
+	   - POST 방식 : 전송할 파라미터값을  본문(body)에 붙여서 전달
+	                길이 제약이 없음(파일업로드)
+	         body(본문)이 필요함 -> 처리속도가 느림(상대적)
+	                 많은양의 데이터를 전송시 사용
+	         -> 주소줄에 중요데이터 표시X(body안에 있음)
+	         => www.itwillbs.co.kr
+	
+	 -->
+	
+	<!-- 페이지에 정보를 입력받아서(input) 전달 -->
+	<!-- 
+	    action ="주소"  => 정보를 전달할 페이지
+	    method="get/post" => 정보를 전달할 방식(기본값-get)
+	
+	 -->
+	
+	<!-- <form action="정보를 전달할 페이지" method="get" >
+	  <input type="text" name="txt">
+	  <input type="password" name="pw"> 
+	  <input type="submit" value="전송"> 
+	</form> -->
+	
+	<fieldset>
+	  <legend>폼태그 사용하기</legend>
+	  <!-- 
+	     submit() 동작발생시(함수호출,버튼클릭) form태그안에 있는 
+	     input태그의 값을 가지고  action페이지로 이동( method 전달방식을 결정 )
+	   -->
+	   <!-- action="" 자신 페이지를 호출 -->
+	   <!-- 폼태그에서 사용, onsubmit="" (submit 이벤트 발생시)-->
+	  <form action="Test2.html" method="get" name="fr" onsubmit=" fun3(); " >
+	    <!-- 전달할 데이터(태그)에는 이름정보(파라미터 이름)가 있어야함 -->
+	        문자 : <input type="text" name="txt" value="아이티윌"> <br>
+	       
+	    <label>나이2 :</label> <input type="text" name="age">  
+	    
+	    <!-- submit 버튼을 사용해서 정보를 전달 (submit() 호출) -->
+	    <input type="submit" value="전송버튼" >
+	    <!-- <input type="submit" value="전송버튼" onclick="fun1();"> -->
+	    <input type="reset" value="초기화">
+	    <hr>
+	    
+	    <input type="button" value="폼태그의 속성(정보)" onclick=" fun1(); "><br>
+	    <input type="button" value="폼태그의 속성변경" onclick=" fun2(); ">
+	    
+	  </form>	
+	</fieldset>
+	
+	
+
+
+
+
+
+
+
+</body>
+</html>

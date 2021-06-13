@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <h1>WebContent/JS2/test2.html</h1>
+   <script type="text/javascript">
+     // 선택문 : switch - case문
+    
+     // 정수식  : 변수(정수,문자열) , 비교연산X
+    /* switch (정수식) {
+		case 값1:
+			실행문;
+			break;
+		case 값2:
+			실행문;
+			break;
+		default:
+			break;
+	} */
+	
+	
+	/* var num = 3.12;
+	
+	switch(num){
+	
+	case 3.12:
+		alert("실수 데이터");
+		break;
+	
+	case "ITWILL":
+		alert(" ITWILl Busan ");
+		break;
+		
+	case "안녕":
+		alert(" 인사!! ");
+		break;
+		
+	case 10:
+		alert("10!!");
+		break;
+	case 9:
+		alert("9!!");
+		break;
+	case 8:
+		alert("8!!");
+		break;
+	case 7:
+		alert("7!!");
+		break;
+	case 6:
+		alert("6!!");
+		break;
+	default:
+		alert(" 해당 사항 없음 !! ");
+	} */
+    
+	/* var num = 8;
+	
+	switch(num){
+	case 10:
+		alert("10!!");
+// 		break;
+	case 9:
+		alert("9!!");
+		break;
+	case 8:
+		alert("8!!");
+// 		break;
+	case 7:
+		alert("7!!");
+// 		break;
+	default:
+		alert(" 해당 사항 없음 !! ");
+	} */
+	
+	
+	// switch-case문
+	// 1. 해당 케이스를 찾아서 실행후 종료 (break문 있을때)
+	// 2. 해당 케이스를 못 찾은경우 가장 끝까지 실행후 종료( default문 실행후 )
+	// 3. * 해당 케이스를 찾아서 실행후 break문이 없을경우 다음 나오는 모든 코드를실행(case 상관없음)
+	//   다음 break문을 찾을때 까지
+	
+	
+	/////////////////////////////////////////////////////
+	
+	//switch - case문 사용
+	// 사용자의 점수를 입력 100~99~90 - A, 89~80- B, 79~70-C, 69~60-D,59~0-F
+	// 사용자의 입력은 항상 0~100 사이 값.
+	var score = 60;
+	
+	var result = Math.floor(score/10);   // 점수의 10자리수 저장
+	document.write("계산 : "+ Math.floor(score/10)+"<br>");
+	
+	var grade = 'F';
+	
+	switch(result){
+// 	case 'A':
+// 	case 'a':
+// 		document.write("등급 : A<br>");
+// 		break;
+	case 10:
+	case 9:
+		//document.write("등급 : A<br>");
+		grade = "A";
+		break;
+	case 8:
+		//document.write("등급 : B<br>");
+		grade = "B";
+		break;
+	case 7:
+		//document.write("등급 : C<br>");
+		grade = "C";
+		break;
+	case 6:
+		//document.write("등급 : D<br>");
+		grade = "D";
+		break;
+	default:
+		//	document.write("등급 : F<br>");
+	    grade ="F";
+	} // switch-case 끝
+	
+	document.write("등급 : "+grade+"<br>");
+	
+	
+	// Q. 사용자가 정보 입력 "이동하고싶은 사이트명"
+	// -> "naver","네이버"
+	//   naver,google,nate,daum
+	//   그외  : "관리자에게 문의하세요"
+	
+	// prompt(), location.href="주소"
+	
+	//location.href="http://www.naver.com";
+	
+	// 
+	// 1. 질문 ->"이동하고싶은 사이트명?"
+		var site =	prompt("이동하고싶은 사이트명?");
+    // 2. 사용자 입력 ->  "naver,구글,...."
+	   // alert("사이트 : "+site);
+    // 3. 입력받은 값을 비교 (if-else, switch-case)
+    
+    var url; //undefined
+    
+    switch(site){
+    case "네이버":
+    case "naver":
+    	//location.href="http://www.naver.com";
+    	url = "naver.com";
+    	break;
+    case "구글":
+    case "google":
+    	//location.href="http://www.google.com";
+    	url = "google.com";
+    	break;
+    case "다음":
+    case "daum":
+    	//location.href="http://www.daum.net";
+    	url = "daum.net";
+    	break;
+    case "네이트":
+    case "nate":
+    	//location.href="http://www.nate.com";
+    	url = "nate.com";
+    	break;
+    	
+    default : 
+    	 alert("관리자에게 문의하세요");    
+    }
+    
+    // 4. 해당 동작일때 -> 페이지 이동
+    // Boolean() : 0, null, undefinded - false, 그외 나머지 true
+    if (url)
+    	location.href="http://www."+url;
+	
+     
+     
+     
+     
+   </script>
+   
+   
+   
+</body>
+</html>

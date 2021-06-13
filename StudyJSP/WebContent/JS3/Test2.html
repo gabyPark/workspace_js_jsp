@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>WebContent/JS3/Test2.html</h1>
+
+	<script type="text/javascript">
+	 // * 자바스크립트는 객체기반 언어  
+	 // 객체(Object) : 내 눈앞에 보이는 모든 대상
+	 // 모든 객체 중에서 필요한 객체만 구분 -> 객체 추상화
+	 // 객체  - 1) 각각의 고유한 속성(특징) => 변수
+	 //     - 2) 할수 있는 고유한 기능(동작) => 함수(메서드)
+	 
+	 // 객체 생성
+	 // => var 참조변수(인스턴스 변수) = new 객체();
+	 // => var 참조변수(인스턴스 변수) = new Object();
+	 // 객체의 속성을 사용
+	 // => 참조변수.속성변수
+	 // 객체의 기능을 사용
+	 // => 참조변수.기능함수()
+	 
+	 // TV 객체 생성
+	 //var myTV = new TV();
+	 var myTV = new Object();
+	 var LGTv = new Object();
+	 
+	 myTV.width = 100;
+	 myTV.height = 100;
+	 
+	 myTV1 = function(){
+		 alert("전원버튼on/off");
+	 }
+	 
+	 document.write(" 티비의 가로길이 : "+myTV.width+"<br>");
+	 document.write(" 티비의 세로길이 : "+myTV.height+"<br>");
+	 
+	 myTV1();
+	 
+	 document.write("<hr>");
+	 
+	 LGTv.width = 200;
+	 LGTv.height= 300;
+	 
+	 document.write(" LG티비의 가로길이 : "+LGTv.width+"<br>");
+	 document.write(" LG티비의 세로길이 : "+LGTv.height+"<br>");
+	 
+	 document.write("<hr>");
+	 
+	 // 전화기 (phone)
+	 // 객체를 사용한다-> 객체 생성( 메모리에 올리는 작업 )
+	 var Phone = new Object();
+	 // 객체 속성 부여 - 색상(color), 크기(size), 모델명(model)
+	 Phone.color = "blue";
+	 Phone.size = 10;
+	 Phone.model = "노트20";
+	 
+	 // 해당 객체의 속성을 확인 - 출력
+	 document.write("색상 :"+Phone.color+"<br>");
+	 document.write("크기 :"+Phone.size+"<br>");
+	 document.write("모델명 :"+Phone.model+"<br>");
+	 
+	 // "red", 20, 아이폰12 - 객체를 생성-> 정보 출력
+	 
+	 var Phone2 = new Object();
+	 
+	 Phone2.model = "아이폰 12";
+	 Phone2.size = 20;
+	 Phone2.color = "red";
+	 
+	 // 해당 객체의 속성을 확인 - 출력
+	 document.write("색상 :"+Phone2.color+"<br>");
+	 document.write("크기 :"+Phone2.size+"<br>");
+	 document.write("모델명 :"+Phone2.model+"<br>");
+	 
+	 // 객체 정보확인 함수 생성 (showInfo)
+	 
+	/*  function showInfo(){
+		 document.write("색상 :"+Phone2.color+"<br>");
+		 document.write("크기 :"+Phone2.size+"<br>");
+		 document.write("모델명 :"+Phone2.model+"<br>");
+	 } */
+	 function showInfo(Phone_info){
+		 document.write("색상 :"+Phone_info.color+"<br>");
+		 document.write("크기 :"+Phone_info.size+"<br>");
+		 document.write("모델명 :"+Phone_info.model+"<br>");
+	 }
+	 
+	 // 익명함수
+	 var showInfo_S = function(Phone_info){
+		 document.write(" 삼성 휴대폰의 정보 확인 <br>");
+		 document.write("색상 :"+Phone_info.color+"<br>");
+		 document.write("크기 :"+Phone_info.size+"<br>");
+		 document.write("모델명 :"+Phone_info.model+"<br>");
+	 }
+	 var showInfo_I = function(Phone_info){
+		 document.write(" 애플 휴대폰의 정보 확인 <br>");
+		 document.write("색상 :"+Phone_info.color+"<br>");
+		 document.write("크기 :"+Phone_info.size+"<br>");
+		 document.write("모델명 :"+Phone_info.model+"<br>");
+	 }
+	 
+	 document.write("<hr>");
+	 document.write(" 함수 호출! <br>");
+	 //showInfo();
+	 showInfo(Phone);
+	 document.write(" 함수 호출! <br>");
+	 showInfo(Phone2);
+	 document.write(" 함수 호출! <br>");
+	 showInfo_S(Phone);
+	 
+	 document.write("<hr>");
+	 // 새로운 휴대폰 1개 생성
+	 var Phone3 = new Object();
+	 
+	 Phone3.power = false;
+	 
+	 document.write(" 전원 : "+(Phone3.power? "ON":"OFF")+"<br>");
+	 // 휴대폰 기능 전원 on/off 기능 구현
+	 var OnOff = function(){
+		 Phone3.power = !Phone3.power;
+	 }
+	 OnOff();
+	 document.write(" 전원 : "+(Phone3.power? "ON":"OFF")+"<br>");
+	 
+	 OnOff();
+	 document.write(" 전원 : "+(Phone3.power? "ON":"OFF")+"<br>");
+	 
+	 
+	 document.write("<hr>");
+	 // 객체의 종류
+	 // 1. 내장객체 : 문자(String),숫자(Number),수학(Math),날짜(Date),배열(Array)
+	 // 2. 브라우저 객체 모델 (BOM)
+	 // 3. 문서 객체 모델 (DOM) - html 태그
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+	
+	
+	
+	
+		
+	</script>
+
+</body>
+</html>

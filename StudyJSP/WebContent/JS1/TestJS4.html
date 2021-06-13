@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <h1>WebContent/JS1/TestJS4.html</h1>
+  
+  <script type="text/javascript">
+    // 연산자 : 데이터들을 사용해서 다양한 연산을 제공
+    
+    // 1. 산술연산자 : + - * / %(나머지연산)
+    
+    // 변수 2개 -> 숫자데이터 2개 초기화 
+    var num1 = 200;
+    var num2 = 100;
+    
+    document.write("(+) : "+(num1 + num2)+"<br>");
+    document.write("(-) : "+(num1 - num2)+"<br>");
+    document.write("(*) : "+(num1 * num2)+"<br>");
+    document.write("(/) : "+(num1 / num2)+"<br>");
+    document.write("(%) : "+(num1 % num2)+"<br>");
+    document.write("(%) : "+(3 % 2)+"<br>");
+    document.write("(/) : "+(3 / 2)+"<br>");
+    
+    // 과일 : 150개 , 한번에 5개씩 포장가능한 상자
+    // => 모든 과일을 포장할때 필요한 상자의 개수 계산
+    // " 총 과일 : 150개  필요한 상자수 : 00 개 "
+    
+    var banana = 100;
+    var sizeOfBox = 5;
+    
+    document.write(" 총 과일 : "+banana+"개  필요한 상자수 : "+(banana/sizeOfBox)+" 개 ");
+    
+    document.write("<br>");
+    // 765 -> ???? -> 700
+    // 156 -> ???? -> 100
+    // 987 -> ???? -> 900
+    		
+    var number = 156;
+    document.write( number / 100 );
+    document.write("<br>");	
+    document.write( Math.floor(number/100) )
+    document.write("<br>");
+    document.write( Math.floor(number/100)*100 )
+    document.write("<br>");
+    
+    // 777 -> ??? -> 771
+    // 652 -> ??? -> 651
+   
+    number = 952; 		
+    document.write( Math.floor(number/10)*10+1 );		
+    document.write("<br>");
+    
+    // 2. 대입연산자 (+복합 대입 연산자)
+    // = , [+=, -=, *=, /=, %=]
+    // A = B; (A에 B의 값을 대입)
+    // 연산의 방향은 오른쪽에서 왼쪽으로 이동
+    
+    // 누적연산
+    // A += B   <=>  A = A + B
+    // A -= B   <=>  A = A - B
+    // A *= B   <=>  A = A * B
+    // A /= B   <=>  A = A / B
+    // A %= B   <=>  A = A % B
+    
+    num1 = 10;
+    num2 = 2;
+    
+    document.write("num1 += num2  : "+(num1 += num2));
+    document.write("<br>");
+    document.write("num1 = num1 + num2  : "+(num1 = num1+num2));
+    document.write("<br>");
+    
+    
+    var name ="홍길동";
+    var tel ="010-1234-7894";
+    // 자바스크립트 에서만 사용 -> 복합 대입 연산을 사용해서 태그를 표현
+    
+    // 자바 스크립트를 사용해서 테이블 출력(복합 대입 연산(누적합)을 사용해서 문자열을 연결,tag)
+    //document.write("<h1>안녕</h1>");
+    var tableTag="";
+    
+    tableTag += "<table border=1>"; // tableTag = tableTag + "<table border=1>";
+    tableTag += "<tr>";
+    tableTag += "<td>";
+    tableTag += number;
+    tableTag += "</td>";
+    tableTag += "<td>2</td>";
+    tableTag += "</tr>";   
+    
+    tableTag += "<tr>";
+    tableTag += "<td>"+name+"</td>";
+    tableTag += "<td>";
+    tableTag += tel;
+    tableTag += "</td>";    
+    tableTag += "</tr>";
+    
+    
+    tableTag += "</table>";   // tableTag = tableTag + "</table>";
+    
+    
+    document.write(tableTag);
+    
+    
+    document.write("<hr>");
+    
+    // 3. 증감연산자  : ++a, a++, --a, a--
+    // -> 각각 1씩 증가(++),감소(--)
+    var a = 100;
+    a++;
+    document.write(" a : "+a+"<br>");
+    ++a;
+    document.write(" a : "+a+"<br>");
+    --a;
+    document.write(" a : "+a+"<br>");
+    a--;
+    document.write(" a : "+a+"<br>");
+    
+    document.write(" a++ : "+ (a++) +"<br>");
+    // -> 후위연산 : 값을 사용하고나서 1증가/감소
+    // => 문장의 끝(;)을 만날때 까지 문장이 끝나지 않음
+    document.write(" a : "+a+"<br>");
+    document.write(" ++a : "+ (++a) +"<br>");
+    // -> 전위연산 : 값을 1증가/감소 하고 값을 사용
+    document.write(" a : "+a+"<br>");
+    a++;
+    a++;
+    ++a; ++a; ++a;
+    document.write(" a : "+a+"<br>");
+    
+    // 반복문,제어문 활용
+    
+    document.write("<hr>");
+    
+    // 4. 비교연산자 :  >  <   >=  <=  ==  !=  === !==
+    // -> 연산의 결과는 항상 boolean타입 (true,false)
+    // [>=] 사용가능, [=>] 사용불가
+    // -> 항상 크기비교 먼저 사용하고 나중에 같은지 비교
+    
+    num1 = 200;
+    num2 = 200;
+    
+    document.write("num1 = "+num1+", num2 = "+num2+"<br>");
+    document.write("> : "+(num1 > num2)+"<br>");
+    document.write("< : "+(num1 < num2)+"<br>");
+    document.write(">= : "+(num1 >= num2)+"<br>");
+    document.write("<= : "+(num1 <= num2)+"<br>");
+
+    document.write("== : "+(num1 == num2)+"<br>");
+    document.write("!= : "+(num1 != num2)+"<br>");
+    
+    // === !==
+    
+    num1 = 100;
+    num2 = "100";
+    
+    document.write("== : "+(num1 == num2)+"<br>"); // !=
+    // -> 데이터의 값만 같은지 비교
+    document.write("=== : "+(num1 === num2)+"<br>"); // !==
+    // -> 데이터의 타입, 데이터의 값 모두 같은지 비교
+    
+    // 반복문,제어문에서 활용
+    
+    //  var data = 100 > 200;
+    
+    // 5. 논리연산자 : &&(AND) ||(OR) !(NOT)
+    // -> 논리값을 사용한 연산 (true,false)
+    
+    // A && B, A || B, !A
+    
+    /*  논리표
+      A   B     &&		||
+      ----------------------------
+      T   T		T		T
+      T   F		F		T
+      F   T		F		T
+      F   F		F		F   
+    
+    */
+    
+    var T = true;
+    var F = false;
+    
+    document.write("T&&T ="+(T && T)+"<br>");
+    document.write("T&&F ="+(T && F)+"<br>");
+    document.write("F&&T ="+(F && T)+"<br>");
+    document.write("F&&F ="+(F && F)+"<br>");
+    
+    document.write("T||T ="+(T || T)+"<br>");
+    document.write("T||F ="+(T || F)+"<br>");
+    document.write("F||T ="+(F || T)+"<br>");
+    document.write("F||F ="+(F || F)+"<br>");
+    
+    // !A -> 값을 부정
+    //  T -> F
+    //  F -> T
+    document.write("!T = "+ !T);
+    document.write("!F = "+ !F);
+    
+    // 6. 삼항 조건 연산자
+    // =>  조건식? 실행문1(참):실행문2(거짓);
+    
+    num1 = 100;
+    num2 = 200;
+    
+    // num1,num2 값을 비교해서 같으면 "같다",다르면 "다르다" 출력
+    num1 == num2? document.write("같다"):document.write("다르다")
+   
+    document.write("<br>");
+    		
+    document.write( num1 == num2? "같다@":"다르다@" );
+    
+    
+    // 과일 : 157개, 한박스에 5개씩 포장한다.
+    // 이때 포장하고 남는 과일은 새로운 박스를 열어서 보관, 만약에 남는 과일이 없을경우 새로운 박스 open X
+    // 이때 필요한 상자의 개수 출력
+    
+    // 1) 새 박스가 필요 O -> 포장하고 남은 과일이 있다.
+    // 2) 새 박스가 필요 X -> 포장하고 남은 과일이 없다.
+    banana = 150;
+    sizeOfBox = 5;
+    
+    document.write(" 필요한 상자의 개수 : "+ (Math.floor(banana/sizeOfBox) + (banana % sizeOfBox>0? 1:0)) +"개");
+    
+    
+    // 적정 체중테스트기
+    // => 적정체중 = (키 - 100) * 0.9;
+    
+    // 사용자의 키,몸무게를 전달받아서 
+    // 몸무게가 적정몸무게랑 동일하면 -> "적정 몸무게 입니다","적정 몸무게 아닙니다."
+    
+    // 사용자의 키보드 입력을 받을수 있음.
+    
+    var height = prompt("키를 입력하세요");
+    var weight = prompt("몸무게를 입력하세요");
+    
+    var nomal_wight = (height - 100) * 0.9;
+    
+    document.write("<br>");
+    document.write("사용자의 몸무게 : "+ weight+"<br>");
+    document.write(" 적정 몸무게 : "+nomal_wight+"<br>");
+    
+    document.write( weight == nomal_wight? "적정 몸무게 O":"적정 몸무게 X" );
+    document.write("<br>");
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </script>
+  
+  
+   <table border="1">
+     <tr>
+       <td>1</td>
+       <td>2</td>
+       <td>3</td>
+     </tr>   
+   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</body>
+</html>

@@ -1,0 +1,123 @@
+ 게시판 만들기
+ ->  웹개발의 기본, 기초 => CRUD
+ 
+ 
+ 테이블 생성
+  `num` -> 글번호 (1. 계산  2. 자동증가)  
+  `name` -> 글쓴이
+  `pass` -> 글비밀번호 ->수정,삭제
+  `subject` -> 글 제목
+  `content` -> 글 내용
+  `readcount` -> 글 조회수
+  `re_ref` -> 답글 그룹번호
+  `re_lev` -> 답글 레벨값
+  `re_seq` -> 답글 순서값
+  `date` -> 글 작성일
+  `ip` -> 글 작성된 IP 
+  `file` -> 파일의 이름
+ 
+  
+ 
+ CREATE TABLE `jspdb`.`itwill_board` (
+  `num` INT NOT NULL,
+  `name` VARCHAR(50) NULL,
+  `pass` VARCHAR(50) NULL,
+  `subject` VARCHAR(100) NULL,
+  `content` VARCHAR(5000) NULL,
+  `readcount` INT NULL,
+  `re_ref` INT NULL,
+  `re_lev` INT NULL,
+  `re_seq` INT NULL,
+  `date` DATE NULL,
+  `ip` VARCHAR(45) NULL,
+  `file` VARCHAR(200) NULL,
+  PRIMARY KEY (`num`));
+  
+  
+  
+  *num : 게시판의 글번호 (일반글, 답글) 
+  *re_ref : 답글의 그룹번호  (일반 글은 번호와 동일,답글 원글의 번호와 동일)
+  *re_lev : 답글의 들여쓰기 (일반글 0)
+  *re_seq : 답글의 순서 (일반글 0)
+  ----------------------------------------------
+  num	subject				re_ref	re_lev	re_seq
+  9		원글(일반글)			9		0		0
+  3		원글(일반글)			3		0		0
+  10	->답글(3-3)			3		1		5
+  5		->답글(3-2)			3		1  		2
+  7		->->답글(3-2-1)		3		2		3
+  8		->->->답글(3-2-1-1)	3		3		4
+  4		->답글(3-1)			3		1		1
+  2		원글(일반글)			2		0		0
+  1		원글(일반글)			1		0		0
+  6		->답글(1-1)			1		1		1
+  
+  
+  * 파일 업로드 (p305~)
+  
+  cos 라이브러리 : 파일 업로드를 사용할수있게 구현해놓은 파일(라이브러리) 
+  
+  http://www.servlets.com/cos/
+   파일 다운로드
+   
+   * post 방식으로 body에 담아 보내야 파일크기 제한없이 사용가능
+    (실사용시 파일크기 제한)
+   
+   <form method="post" enctype="multipart/form-data">
+      <input type="file" name="filename">
+      
+   </form>
+   
+   * WebContent/upload 폴더 생성
+     (가상경로)
+     => 외부에서는 upload 폴더에 파일 업로드,
+        내부적으로 서버의 폴더에 파일업로드 
+   
+   
+   * 경로 
+    - 직접경로 : 파일을 외부에서 접근
+    - 간접경로 : 가상의 주소를 사용해서 파일을 접근
+    
+    => 파일 : 데이터의 모음(데이터를 영구적으로 저장)
+    => 파일에 직접 접근 -> 서버(컴퓨터)에 직접 접근해서 파일을 사용
+    
+    	사용자   <-> 서버
+    
+    => 파일에 간접 접근 -> 파일서버(컴퓨터)에 접근해서 간접적으로 사용
+    
+    	사용자 <-> 파일서버 <-> 서버
+    
+    
+   
+    MultipartRequest multi
+            = new MultipartRequest(
+            		request, => 페이지 요청정보
+            		uploadPath, => 업로드 폴더
+            		fileSize, => 업로드 파일의 크기 
+            		"UTF-8", => 인코딩 
+            		new DefaultFileRenamePolicy() => 중복된 파일이름 처리 객체
+            		); 
+            		
+      => 해당 객체가 생성된 후  파일이 해당 경로에 업로드 되어있음.  
+      
+      
+      
+      ** 파일 업로드 처리시 서버의 클린 기능 사용 X
+      -> 서버의 시작 시점으로 초기화 (생성한 upload 폴더 삭제)
+      
+      => D:\workspace_jsp5\.metadata\.plugins
+      		\org.eclipse.wst.server.core\tmp1
+      		\wtpwebapps\FunWebJSP
+        실제 저장되는 경로로 이동후 직접 upload 폴더 생성 하면 정상 작동 		    		
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+  $(function(){
+	  
+	  $.getJSON("Json3.jsp",function(data){
+		  console.log(data);
+		 
+		  // index i, value v
+		  $.each(data,function(i,v){
+			    var t = "<tr><td>"+v.id+"</td><td>"+v.pass+"</td></tr>"
+				$('table').append(t);
+			});
+		  
+	  }); 
+	  
+// 	  $.ajax("Json3.jsp",function(data){
+// 		  console.log(data);
+// 	  });
+  });
+
+</script>
+
+</head>
+<body>
+  <h1>WebContent/jq3/Json3.html</h1>
+  
+  <table border="1">
+    <tr>
+      <td>아이디</td>
+      <td>비밀번호</td>
+    </tr>    
+  </table>
+  
+  
+</body>
+</html>

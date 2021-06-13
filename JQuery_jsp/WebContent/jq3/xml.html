@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery_jsp / WebContent / jq3 / xml.html</title>
+
+<script src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		// xml 데이터 파싱 (데이터 자르기)
+		
+		$.ajax({
+			url:"xml.jsp",
+			success:function(data){
+				// alert(data);
+				$(data).find('person').each(function(){
+					var name = $(this).find('name').text();
+					
+					$('body').append("이름 : "+name+"<br>");
+				});
+			}
+		});
+	});
+
+</script>
+
+</head>
+<body>
+
+<h1>JQuery_jsp / WebContent / jq3 / xml.html</h1>
+
+</body>
+</html>

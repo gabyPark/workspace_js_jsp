@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WebContent/jq3/json1.html</title>
+<script src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+   
+   $(function(){
+	  
+	   $.ajax({
+		  url:"Json1.jsp",
+		  dataType: "json",
+		  success:function(data){
+			 // $('body').append(data);  
+			 alert("성공!");
+			 //alert(data);
+			 console.log(data);
+		  
+			 // $(data).each(function(key,value){ (X)
+			 $.each(data,function(key,value){ // (O)
+			  $('body').append(key+" : "+value+"<br>");
+		  });
+		  }		  
+	  }); 
+	   
+
+	  $.getJSON('Json1.jsp',function(data){
+		  alert(data);
+		  console.log(data);
+		  
+		  $.each(data,function(key,value){
+			  $('body').append(key+" : "+value+"<br>");
+		  });		  
+	  });	   
+   });
+</script>
+
+</head>
+<body>
+ <h1>WebContent/jq3/json1.html</h1>
+
+</body>
+</html>
